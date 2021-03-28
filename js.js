@@ -93,8 +93,32 @@ function getData()
 
 function md(recipe)
 {
-    console.log(recipe.label);
-    console.log(recipe.ingredients)
+
+    console.log(recipe);
+    document.getElementById('staticBackdropLabel').innerHTML = recipe.label;
+    document.getElementById('link').href = recipe.url;
+    let ing = document.getElementById('ingredients');
+    ing.innerHTML = "";
+    document.getElementById('nutrients').innerHTML = "";
+    document.getElementById('mealType').innerHTML = recipe.mealType;
+    document.getElementById('dishType').innerHTML = recipe.dishType;
+    document.getElementById('dietLabel').innerHTML = recipe.dietLabels;
+    document.getElementById('yield').innerHTML = recipe.yield;
+    document.getElementById('cal').innerHTML = parseInt(recipe.calories);
+    for(let i = 0;i<recipe.ingredients.length;i++)
+    {
+        let ingredient = document.createElement('li');
+        ingredient.innerHTML = recipe.ingredientLines[i];
+        console.log(recipe.ingredientLines[i]);
+        ing.appendChild(ingredient);
+    }
+    const nutlabel = Object.values(recipe.totalNutrients);
+    for(let i =0;i<nutlabel.length;i++)
+    {
+        let nutrient = document.createElement('div');
+        nutrient.innerHTML = nutlabel[i].label;
+        document.getElementById('nutrients').appendChild(nutrient);
+    }
 }
 
 function d(data)
@@ -111,7 +135,7 @@ function d(data)
                 <div class="card-body">
                     <h6 class="card-title">${data.hits[i].recipe.label}</h6>
                 </div>
-                <div><button id='but' onclick='md(${rec})' type='button' data-toggle='modal' data-target='#exampleModalScrollable'>Recipe</button></div>
+                <div><button id='but' type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#staticBackdrop' onclick='md(${rec})'>Recipe</button></div>
            </div>`
       ;
         document.querySelector("#content").appendChild(toAdd);
