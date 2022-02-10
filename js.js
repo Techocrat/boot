@@ -69,7 +69,7 @@ function onl(){
     
     let app_id = "ae9ec6b9";
     let app_key = "14b9a265b9446d71415e30308065834f";
-    fetch(`https://api.edamam.com/search?app_id=${app_id}&app_key=${app_key}&q&cuisineType=chinese&from=${start}&to=${end}`)
+    fetch(`https://api.edamam.com/search?app_id=${app_id}&app_key=${app_key}&q&cuisineType=Chinese&from=${start}&to=${end}`)
     .then(response => response.json())
     .then(data =>{
         console.log(data);
