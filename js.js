@@ -149,27 +149,27 @@ function d(data)
 
 }
 
-window.onscroll = () => {
-    if(window.innerHeight + window.scrollY >= document.body.offsetHeight && o)
-    {
+// window.onscroll = () => {
+//     if(window.innerHeight + window.scrollY >= document.body.offsetHeight && o)
+//     {
 
-        if(isdrop)
-        {
-            dropdowndata();
-        }
-        else
-        {
-            if(!b)
-            {
+//         if(isdrop)
+//         {
+//             dropdowndata();
+//         }
+//         else
+//         {
+//             if(!b)
+//             {
 
-                onl();
-            }
-            else
-            {
-                count+=1;
-                getData();
-            }
-        }
-    }
-}
+//                 onl();
+//             }
+//             else
+//             {
+//                 count+=1;
+//                 getData();
+//             }
+//         }
+//     }
+// }
 
